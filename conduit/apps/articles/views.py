@@ -20,7 +20,6 @@ class ArticleViewSet(mixins.CreateModelMixin,
     queryset = Article.objects.select_related('author', 'author__user')
     permission_classes = (IsAuthenticatedOrReadOnly,)
     renderer_classes = (ArticleJSONRenderer,)
-    serializer_class = ArticleSerializer
 
     def get_queryset(self):
         queryset = self.queryset
